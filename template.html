@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>	
+	<title></title>
+	<style type="text/css">
+		.container{
+			width: 595px;
+			height: 842px;
+			background-color:#efeeee;
+			box-shadow: 1px 1px 1px black;
+			margin: auto;
+		}
+		.innerContainer{
+		    width: 535px;
+		    background-color: none;
+		    position: absolute;
+		    height: 782px;
+		    margin: 30px;
+		    display: flex;
+		}
+		/*LEFT SIDE--------------------------------------------*/
+		.leftSide{
+			width: 185px;
+		    height: 782px;
+		    background-color: none;
+		    overflow-wrap: break-word;
+		}
+		.photo img{
+			margin-top: 1px;
+		    max-width: 183px;
+		    border: 1px solid black;
+		}
+		.name{			
+			font-size: 28px;
+		    font-weight: bolder;
+		    color: black;
+		    text-transform: uppercase;		   
+		    padding:10px 0px;
+		}
+		.address{
+			padding: 20px 0px;
+		}
+		.contact{
+			padding:20px 0px;
+		}
+		/*LEFT SIDE--------------------------------------------*/
+		.border{
+			width: 3px;
+			margin-left: 20px;
+			height: 782px;
+			background-color: black;
+			border-radius: 30%;
+			background-color: #42020263;
+		}
+		.rightSide{
+			margin-left: 209px;
+		    width: 326px;
+		    position: absolute;
+		    height: 782px;
+		    background-color: #7d7c7c14;
+		    color: #420202;
+		}
+		.section{
+			margin-left: 15px;
+		}
+		.title::before{
+			position: absolute;
+		    margin-top: 5px;
+		    content: '';
+		    display: inline-block;
+		    width: 15px;
+		    margin-left: -25px;
+		    height: 15px;
+		    -moz-border-radius: 7.5px;
+		    -webkit-border-radius: 7.5px;
+		    border-radius: 7.5px;
+		    background-color: #4202028a;
+		}
+		.title{
+			font-size: 36px;
+    		margin: 10px 0px;
+    		text-transform: uppercase;
+		}
+		.entry{
+			display: flex;
+			font-size: 14px;
+			padding-bottom: 10px;
+		}
+		.date::before{
+		    content: '';
+		    display: inline-block;
+		    width: 8px;
+		    height: 8px;
+		    -moz-border-radius: 7.5px;
+		    -webkit-border-radius: 7.5px;
+		    border-radius: 4px;
+		    margin-right: 10px;
+		    background-color: #420202;
+		}
+		.date{
+			margin: auto 10px auto 0px;	
+		}
+		.position{
+		    font-size: 16px;
+		    font-weight: bold;
+		    text-transform: capitalize;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="innerContainer">
+			<div class="leftSide">			
+				<div class="photo">
+					<img src="s4-2.jpg">
+				</div>
+				<div class="name" id="person">					
+				</div>
+				<div class="address">
+					jl. cimacan kp. sukadingin
+					rt 01 rw 11
+					desa palsari
+					kecamatan cipanas kabupaten cianjur
+					43253
+				</div>			
+				<div class="contact">
+					HP: 081316079331
+					Email: sopathidayat27@gmail.com
+
+				</div>	
+		</div>
+		<div class="border">
+			
+		</div>
+		<div class="rightSide">
+			<div class="section">
+				<div class="title">pendidikan</div>
+				<div class="entry">
+					<div class="date">2014 - 2017</div>
+					<div class="mainData">
+						<div class="position">politeknik praktisi bandung</div>						
+						<div class="desc">Teknologi sistem informasi</div>
+					</div>
+				</div>
+				<div class="entry">
+					<div class="date">2014 - 2017</div>
+					<div class="mainData">
+						<div class="position">politeknik praktisi bandung</div>						
+						<div class="desc">Teknologi sistem informasi</div>
+					</div>
+				</div>
+			</div>
+			<div class="section">
+				<div class="title">pengalaman kerja</div>
+				<div class="entry">
+					<div class="date">2014 - 2017</div>
+					<div class="mainData">
+						<div class="position">pt. indocyber global tehcnology</div>						
+						<div class="desc">Teknologi sistem informasi</div>
+					</div>
+				</div>
+				<div class="entry">
+					<div class="date">2014 - 2017</div>
+					<div class="mainData">
+						<div class="position">politeknik praktisi bandung</div>						
+						<div class="desc">Teknologi sistem informasi</div>
+					</div>
+				</div>				
+			</div>
+			<div class="section">
+				<div class="title">kemampuan</div>
+				<div class="entry">
+					<div class="date">2014 - 2017</div>
+					<div class="mainData">
+						<div class="position">pt. indocyber global tehcnology</div>						
+						<div class="desc">Teknologi sistem informasi</div>
+					</div>
+				</div>
+				<div class="entry">
+					<div class="date">2014 - 2017</div>
+					<div class="mainData">
+						<div class="position">politeknik praktisi bandung</div>						
+						<div class="desc">Teknologi sistem informasi</div>
+					</div>
+				</div>				
+			</div>
+		</div>
+		</div>		
+	</div>	
+	<script type="text/javascript" src="script.js"></script>
+	<script type="text/javascript">
+		coba();		
+		$(document).ready(function(){
+			const Url ='http://192.168.43.166:6060/dataentry';
+				$.ajax({
+					url: Url,
+					type:"GET",
+					success: function(result){
+						$("#person").text(result.nama);
+					},
+					error:function(error){
+						console.log('Error ${error}');
+					}
+				});
+		});
+
+	</script>
+</body>
+</html>
